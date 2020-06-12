@@ -22,7 +22,6 @@ public class OthelloGame extends MouseAdapter
       OthelloDisk disk = new OthelloDisk();
       window.add(disk);
       window.getContentPane().validate();
-      window.getContentPane().repaint();
 
       clickstat = 1;
    }
