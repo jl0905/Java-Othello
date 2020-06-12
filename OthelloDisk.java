@@ -12,17 +12,18 @@ public class OthelloDisk extends JComponent
 
    public void paintComponent(Graphics g)
    {
-      System.out.println("test");
       Graphics2D diskdown = (Graphics2D) g;
-      if (DiskClick.turn % 2 == 0 || DiskClick.color == Color.WHITE)
+      Rectangle rectangle = new Rectangle(OthelloGame.clickx, OthelloGame.clicky, 100, 100);
+      diskdown.draw(rectangle);
+      if (OthelloGame.turn % 2 == 0 || OthelloGame.color == Color.WHITE)
       {
          diskdown.setColor(Color.WHITE);
       }
-      if (DiskClick.turn % 2 == 1 || DiskClick.color == Color.WHITE)
+      if (OthelloGame.turn % 2 == 1 || OthelloGame.color == Color.WHITE)
       {
          diskdown.setColor(Color.BLACK);
       }
-      diskdown.fillRect(DiskClick.clickx+10, DiskClick.clicky+10, 80, 80);
+      diskdown.fillRect(OthelloGame.clickx+10, OthelloGame.clicky+10, 80, 80);
 
    }
 
