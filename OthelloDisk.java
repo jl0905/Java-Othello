@@ -1,15 +1,15 @@
 // Ethan Valentine, Jeffery Lin
 // GUI Code
 
-import javax.swing.JComponent;
+import javax.swing.JPanel;
+
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.Color;
   
-public class OthelloDisk extends JComponent
-{ 
-
+public class OthelloDisk extends JPanel
+{
    public void paintComponent(Graphics g)
    {
       Graphics2D diskdown = (Graphics2D) g;
