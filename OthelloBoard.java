@@ -9,12 +9,11 @@ import java.awt.Color;
   
 public class OthelloBoard extends JComponent
 { 
-
+   public Rectangle[] gameboard = new Rectangle[64];
    public void paintComponent(Graphics g)
    {
       System.out.println("test2");
       Graphics2D graphics = (Graphics2D) g;
-      Rectangle[] gameboard = new Rectangle[64];
       for (int i=0;i<8;i++)
       {
          for (int ii=0;ii<8;ii++)

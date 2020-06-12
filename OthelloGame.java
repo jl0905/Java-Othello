@@ -6,6 +6,7 @@ import java.awt.Color;
 public class OthelloGame extends MouseAdapter
 {
    public JFrame window = new JFrame("Othello!");
+   public OthelloBoard board = new OthelloBoard();
    public static int turn = 0;
    public static int clickx = 0;
    public static int clicky = 0;
@@ -16,10 +17,13 @@ public class OthelloGame extends MouseAdapter
    {
       turn += 1;
       System.out.println(turn);
-      clickx = ((e.getX() + 99) / 100 ) * 100;
-      clicky = ((e.getY() + 99) / 100 ) * 100;
+      clickx = ((e.getX()) / 100 ) * 100;
+      clicky = ((e.getY()) / 100 ) * 100;
       OthelloDisk disk = new OthelloDisk();
       window.add(disk);
+      window.getContentPane().validate();
+      window.getContentPane().repaint();
+
       clickstat = 1;
    }
 
@@ -30,10 +34,7 @@ public class OthelloGame extends MouseAdapter
       window.setSize(950, 840);
       window.setLocation(700, 150);
       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-      
       window.setVisible(true);
-         
-      OthelloBoard board = new OthelloBoard();
       window.add(board);
 
 
