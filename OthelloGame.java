@@ -2,6 +2,8 @@ import javax.swing.JFrame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import java.awt.Robot;
+import java.awt.AWTException;
 
 public class OthelloGame extends MouseAdapter
 {
@@ -24,6 +26,99 @@ public class OthelloGame extends MouseAdapter
       window.getContentPane().validate();
 
       clickstat = 1;
+      try {
+         Robot robot = new Robot();
+         int count = 100;
+         Color color = robot.getPixelColor(e.getX(),e.getY());
+         if (turn % 2 == 0) {
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX()+count, e.getY());
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX()-count, e.getY());
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX(), e.getY()+count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX()-count, e.getY()-count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX()-count, e.getY()-count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX()+count, e.getY()+count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX()+count, e.getY()-count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 255) {
+               color = robot.getPixelColor(e.getX()-count, e.getY()+count);
+               count += 100;
+            }
+            }
+         if (turn % 2 == 1) {
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX()+count, e.getY());
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX()-count, e.getY());
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX(), e.getY()+count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX()-count, e.getY()-count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX()-count, e.getY()-count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX()+count, e.getY()+count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX()+count, e.getY()-count);
+               count += 100;
+            }
+            count = 100;
+            while(count < 800 && color.getRed() != 0) {
+               color = robot.getPixelColor(e.getX()-count, e.getY()+count);
+               count += 100;
+            }
+         }
+         } catch (AWTException h) {
+            h.printStackTrace();
+           }
+
+
    }
 
    public void gameInit(OthelloGame game)
@@ -31,7 +126,7 @@ public class OthelloGame extends MouseAdapter
       window.getContentPane().addMouseListener(game);
       
       window.setSize(950, 840);
-      window.setLocation(700, 150);
+      window.setLocation(-7, -30);
       window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
       window.setVisible(true);
       window.add(board);
@@ -47,6 +142,7 @@ public class OthelloGame extends MouseAdapter
    {
       OthelloGame game = new OthelloGame();
       game.gameInit(game);
+
    }
    
 } 
