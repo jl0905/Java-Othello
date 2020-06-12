@@ -1,18 +1,31 @@
-// Jeffery Lin, Ethan Valentine
-// Othello, Accel. CS Final Project
-
-import java.io.*; 
 import javax.swing.JFrame;
-import java.awt.*;
-//import java.awt.event.*;
-  
-public class OthelloGame 
-{ 
-   
-   public static void gameInit()
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Color;
+
+public class OthelloGame extends MouseAdapter
+{
+   public JFrame window = new JFrame("Othello!");
+   public static int turn = 0;
+   public static int clickx = 0;
+   public static int clicky = 0;
+   public static int clickstat = 0;
+   public static Color color = new Color(0, 0, 0);
+
+   public void mouseClicked(MouseEvent e)
    {
-      JFrame window = new JFrame("Othello!");
-      window.getContentPane().addMouseListener(new DiskClick());
+      turn += 1;
+      System.out.println(turn);
+      clickx = ((e.getX() + 99) / 100 ) * 100;
+      clicky = ((e.getY() + 99) / 100 ) * 100;
+      OthelloDisk disk = new OthelloDisk();
+      window.add(disk);
+      clickstat = 1;
+   }
+
+   public void gameInit(OthelloGame game)
+   {
+      window.getContentPane().addMouseListener(game);
       
       window.setSize(950, 840);
       window.setLocation(700, 150);
@@ -22,15 +35,18 @@ public class OthelloGame
          
       OthelloBoard board = new OthelloBoard();
       window.add(board);
+
+
       
-      }
+   }
 
    
 
    
    public static void main(String[] args)
    {
-      gameInit();
+      OthelloGame game = new OthelloGame();
+      game.gameInit(game);
    }
    
 } 

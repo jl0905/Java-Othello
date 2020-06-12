@@ -12,6 +12,7 @@ public class DiskClick extends MouseAdapter
    public static int clicky = 0;
    public static int clickstat = 0;
    public static Color color = new Color(0, 0, 0);
+
    
    public void mouseClicked(MouseEvent e)
    {
@@ -19,7 +20,7 @@ public class DiskClick extends MouseAdapter
       System.out.println(turn);
       clickx = ((e.getX() + 99) / 100 ) * 100;
       clicky = ((e.getY() + 99) / 100 ) * 100;
-      //OthelloDisk disk = new OthelloDisk();
+      OthelloDisk disk = new OthelloDisk();
       //window.add(disk);
       clickstat = 1;
    }
