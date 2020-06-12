@@ -12,6 +12,7 @@ public class OthelloBoard extends JComponent
 
    public void paintComponent(Graphics g)
    {
+      System.out.println("test2");
       Graphics2D graphics = (Graphics2D) g;
       Rectangle[] gameboard = new Rectangle[64];
       for (int i=0;i<8;i++)
