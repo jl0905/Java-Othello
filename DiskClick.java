@@ -20,7 +20,7 @@ public class DiskClick extends MouseAdapter
       System.out.println(turn);
       clickx = ((e.getX() + 99) / 100 ) * 100;
       clicky = ((e.getY() + 99) / 100 ) * 100;
-      OthelloDisk disk = new OthelloDisk();
+      //OthelloDisk disk = new OthelloDisk();
       //window.add(disk);
       clickstat = 1;
    }
