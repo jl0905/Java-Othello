@@ -9,6 +9,7 @@ public class OthelloGame extends MouseAdapter
 {
    public JFrame window = new JFrame("Othello!");
    public OthelloBoard board = new OthelloBoard();
+   public static Integer[][] disks = new Integer[8][8];
    public static int turn = 0;
    public static int clickx = 0;
    public static int clicky = 0;
@@ -18,13 +19,40 @@ public class OthelloGame extends MouseAdapter
    public void mouseClicked(MouseEvent e)
    {
       turn += 1;
-      System.out.println(turn);
       clickx = ((e.getX()) / 100 ) * 100;
       clicky = ((e.getY()) / 100 ) * 100;
-      OthelloDisk disk = new OthelloDisk();
-      window.add(disk);
-      window.getContentPane().validate();
+      int x = clickx/100;
+      int y = clicky/100;
 
+      if(disks[x][y] == 2) {
+         System.out.println(disks[x][y]);
+         OthelloDisk disk = new OthelloDisk();
+         window.add(disk);
+         window.getContentPane().invalidate();
+         window.getContentPane().validate();
+      }
+      else {
+         turn-=1;
+      }
+
+      disks[x][y] = turn%2;
+      for(int i=y-1;i>=0;i--) {
+         //try {
+         if(disks[x][i] == turn%2) {
+
+               /*for(int j=y-1;j>=i;i--) {
+                  disks[x][j] = turn%2;
+                  clickx = x*100;
+                  clicky = j*100;
+                  OthelloDisk disk = new OthelloDisk();
+                  window.add(disk);
+                  window.getContentPane().invalidate();
+                  window.getContentPane().validate();
+               }*/
+         }
+         //}
+         //catch(RuntimeException error) {}
+      }
       clickstat = 1;
       try {
          Robot robot = new Robot();

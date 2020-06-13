@@ -28,6 +28,16 @@ public class OthelloBoard extends JComponent
       graphics.setColor(Color.BLACK);
       graphics.fillRect(310, 410, 80, 80);
       graphics.fillRect(410, 310, 80, 80);
+      for(int x=0;x<8;x++) {
+         for(int y=0;y<8;y++) {
+            OthelloGame.disks[x][y] = 2;
+         }
+      }
+      OthelloGame.disks[3][3] = 0;
+      OthelloGame.disks[3][4] = 1;
+      OthelloGame.disks[4][3] = 0;
+      OthelloGame.disks[4][4] = 1;
+
    }
     
 } 
